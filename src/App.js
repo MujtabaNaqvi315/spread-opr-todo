@@ -7,8 +7,8 @@ function App() {
   const [items, setItems] = useState([]);
   
   function handleChange (e) {
-    const {value} = e.target;
-    setItem(value)
+    const newValue = e.target.value;
+    setItem(newValue)
   }
 
   function handleClick () {
