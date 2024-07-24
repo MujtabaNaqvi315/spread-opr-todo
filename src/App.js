@@ -30,8 +30,12 @@ function App() {
           onChange={handleChange}
           type="text"
           value={item}
+          onKeyDown={e => (e.key === "Enter") && handleClick()}
         />
-        <button onClick={handleClick}>
+        <button 
+          onClick={handleClick}
+          
+        >
           <span>Add</span>
         </button>
       </div>
