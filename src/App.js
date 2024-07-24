@@ -5,7 +5,7 @@ function App() {
 
   const [item, setItem] = useState("");
   const [items, setItems] = useState([]);
-
+  
   function handleChange (e) {
     const {value} = e.target;
     setItem(value)
@@ -37,8 +37,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map(todoitem => 
-            <li>{todoitem}</li>
+          {items.map((todoitem, index) => 
+            <li key={index}>{todoitem}</li>
           )}
         </ul>
       </div>
