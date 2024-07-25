@@ -5,20 +5,13 @@ import InputArea from './components/InputArea';
 
 function App() {
 
-  const [item, setItem] = useState("");
   const [items, setItems] = useState([]);
-  
-  function handleChange (e) {
-    const newValue = e.target.value;
-    setItem(newValue)
-  }
 
-  function handleClick () {
-    if (item){
+  function addItem (inputText) {
+    if (inputText){
       setItems((prevItems) => {
-        return [...prevItems, item];
+        return [...prevItems, inputText];
       })
-      setItem("");
     }
   }
 
@@ -36,9 +29,7 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <InputArea 
-        item={item}
-        handleChange={handleChange}
-        handleClick={handleClick}
+        addBtnClick={addItem}
       />
       <div>
         <ul>

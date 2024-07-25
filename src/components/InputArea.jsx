@@ -1,14 +1,32 @@
-function InputArea ({ item, handleChange, handleClick }) {
+import { useState } from 'react';
+
+function InputArea ({ addBtnClick }) {
+
+    const [inputText, setInputText] = useState("");
+
+    function handleChange (e) {
+        const newValue = e.target.value;
+        setInputText(newValue)
+      }
+
     return (
         <div className="form">
             <input 
                 onChange={handleChange}
                 type="text"
-                value={item}
-                onKeyDown={e => (e.key === "Enter") && handleClick()}
+                value={inputText}
+                onKeyDown={e => {
+                    if (e.key === "Enter"){
+                        addBtnClick(inputText);
+                        setInputText("");
+                    } 
+                }}
             />
             <button 
-                onClick={handleClick}
+                onClick={ () => {
+                    addBtnClick(inputText);
+                    setInputText("");
+                }}
             >
             <span>Add</span>
             </button>
